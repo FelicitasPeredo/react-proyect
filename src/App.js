@@ -1,15 +1,10 @@
 import './App.css';
-import NewComponent from './NewComponent';
-import Navbar from './NavBar';
+import Navbar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <Navbar></Navbar>
-        <h1>Mi primera aplicacion React</h1>
-      </header>
-      <NewComponent></NewComponent>
+      <Navbar></Navbar>
     </div>
   );
 }
