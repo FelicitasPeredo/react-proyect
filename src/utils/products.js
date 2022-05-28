@@ -52,7 +52,7 @@ const products = [{
     categoria: "Aros",
     description: "Plata",
     cost: 2700,
-    image: "https://i.ibb.co/M5vtK6s/Aros-Doble-Argollita-Plata.jpg",
+    image: "https://i.ibb.co/7RyTf6b/Aros-Doble-Argollita-Plata.jpg",
     stock: 50
 }, {
     id: "8",

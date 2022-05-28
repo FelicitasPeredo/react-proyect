@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 
-function ItemCount(props) {
-    const [cantidad, setCantidad] = useState(props.initial)
+function ItemCount({stock, initial, onAdd}) {
+    const [cantidad, setCantidad] = useState(initial)
     const sumaCtdad = () => {
-        if (cantidad < props.stock) setCantidad(cantidad+1); 
+        if (cantidad < stock) setCantidad(cantidad+1); 
     }
 
     const restaCtdad = () => {

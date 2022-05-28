@@ -1,9 +1,10 @@
-let is_ok = true;
+let condition = true;
 
-const promise = (time, task) => {
+// Simula el pedido de informacion a una base de datos.
+const getData = (time, task) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (is_ok) {
+            if (condition) {
                 resolve(task);
             } else {
                 reject("Error");
@@ -12,4 +13,4 @@ const promise = (time, task) => {
     });
 }
 
-export default promise;
+export default getData;
