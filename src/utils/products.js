@@ -2,7 +2,7 @@ const products = [{
     id: "1",
     name: "Aros Afrika",
     categoria: "Aros",
-    description: "Oro",
+    description: "Argollas bañadas en Oro",
     cost: 2800,
     image: "https://i.ibb.co/ckjrGS1/Aros-Argollas-Oro.jpg",
     stock: 50
@@ -10,7 +10,7 @@ const products = [{
     id: "2",
     name: "Aros Afrika",
     categoria: "Aros",
-    description: "Plata",
+    description: "Argollas bañadas en Plata",
     cost: 2800,
     image: "https://i.ibb.co/cvDK7yY/Aros-Argollas-Plata.jpg",
     stock: 50
@@ -26,7 +26,7 @@ const products = [{
     id: "4",
     name: "Aros Tavira",
     categoria: "Aros",
-    description: "Oro",
+    description: "Aros en forma circular bañados en Oro",
     cost: 2700,
     image: "https://i.ibb.co/ZVLjsCB/Aros-Circulo-Oro.jpg",
     stock: 50
@@ -34,7 +34,7 @@ const products = [{
     id: "5",
     name: "Aros Tavira",
     categoria: "Aros",
-    description: "Plata",
+    description: "Aros en forma circular bañados en Plata",
     cost: 2700,
     image: "https://i.ibb.co/F8ZGNrL/Aros-Circulo-Plata.jpg",
     stock: 50
@@ -42,7 +42,7 @@ const products = [{
     id: "6",
     name: "Aros Evora",
     categoria: "Aros",
-    description: "Oro",
+    description: "Doble mini argolla bañados en Oro",
     cost: 2700,
     image: "https://i.ibb.co/BcGbmxX/Aros-Doble-Argollita-Oro.jpg",
     stock: 50
@@ -50,7 +50,7 @@ const products = [{
     id: "7",
     name: "Aros Evora",
     categoria: "Aros",
-    description: "Plata",
+    description: "Doble mini argolla bañados en Plata",
     cost: 2700,
     image: "https://i.ibb.co/7RyTf6b/Aros-Doble-Argollita-Plata.jpg",
     stock: 50
@@ -66,7 +66,7 @@ const products = [{
     id: "9",
     name: "Aros Meia",
     categoria: "Aros",
-    description: "Oro",
+    description: "Rayo de brillantes bañado en Oro",
     cost: 3300,
     image: "https://i.ibb.co/BP038tj/Aros-Rayito.jpg",
     stock: 50
