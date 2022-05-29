@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import ItemCount from './ItemCount';
 import getData from '../utils/promise';
 import ItemDetail from './ItemDetail';
 const { products } = require('../utils/products');
