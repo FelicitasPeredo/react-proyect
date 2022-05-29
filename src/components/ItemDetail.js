@@ -18,10 +18,7 @@ function ItemDetail({ item }) {
           <h2 class="card-title">{item.name}</h2>
           <p >{item.description}</p>
           <p >${item.cost}</p>
-          <ItemCount stock={item.stock} initial={0}></ItemCount>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary" onClick={onAdd}>Add to Cart</button>
-          </div>
+          <ItemCount stock={item.stock} initial={0} onAdd={onAdd}></ItemCount>
         </div>
       </div>
       : <p>Cargando...</p>
