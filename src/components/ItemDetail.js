@@ -12,7 +12,7 @@ function ItemDetail({ item }) {
     {
       item.image
       ?
-      <div class="card w-7/12 h-96 card-side bg-base-100 shadow-xl p-1 m-5 justify-center">
+      <div class="card w-7/12 h-96 card-side bg-base-100 shadow-xl p-1 m-6 justify-center">
         <figure><img src={item.image} alt='Product'/></figure>
         <div class="card-body">
           <h2 class="card-title text-2xl place-self-center">{item.name}</h2>
