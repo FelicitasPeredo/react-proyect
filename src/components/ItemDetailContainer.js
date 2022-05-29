@@ -7,12 +7,10 @@ function ItemDetailContainer() {
     const [itemDetail, setitemDetail] = useState([]);
 
     useEffect(() => {
-        getData(2000, products[8])
+        getData(2000, products[11])
           .then(result => setitemDetail(result))
           .catch(error => console.log(error))
       }, []);
-
-    console.log(typeof(products[8]))
 
   return (
     <div class=" flex justify-center">
