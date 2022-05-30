@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
 
 const Navbar = () => {
@@ -14,9 +15,9 @@ const Navbar = () => {
                     <li tabindex="0">
                         <span>Productos</span>
                         <ul class="rounded-box p-2 bg-secondary text-secondary-content">
-                        <li><a>Aros</a></li>
-                        <li><a>Collares</a></li>
-                        <li><a>Anillos</a></li>
+                        <li><a><Link to='/category/aros'>Aros</Link></a></li>
+                        <li><a><Link to='/category/collares'>Collares</Link></a></li>
+                        <li><a><Link to='/category/anillos'>Anillos</Link></a></li>
                         </ul>
                     </li>
                     <li><a>About Us</a></li>
@@ -24,7 +25,7 @@ const Navbar = () => {
             </div>
         </div>
         <div class="navbar-center">
-            <p class="btn btn-ghost normal-case text-xl">Olhos de Agua</p>
+            <button class="btn btn-ghost normal-case text-xl"><Link to='/'>OLHOS DE AGUA</Link></button>
         </div>
         <div class="navbar-end p-2">
             <div class="form-control">

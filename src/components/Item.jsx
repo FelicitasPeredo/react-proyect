@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Item({picture, title, price, stock}) {
+function Item({id, picture, title, price, stock}) {
   return (
         <div class="card w-96 bg-base-100 shadow-xl">
             <figure class="px-10 pt-10">
@@ -10,7 +11,7 @@ function Item({picture, title, price, stock}) {
                 <h2 class="card-title">{title}</h2>
                 <p>{price}</p>
                 <div class="card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <button class="btn btn-secondary"><Link to={`/item/${id}`}>Buy Now</Link></button>
                 </div>
             </div>
         </div>
