@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FaFacebook } from 'react-icons/fa';
+import SubscriptionInput from './SubscriptionInput';
 
 function Footer() {
   return (
@@ -12,8 +13,8 @@ function Footer() {
             </p> 
             <p>Copyright © 2022 - All right reserved</p>
             <div class="grid grid-flow-col gap-4">
-                <a><AiOutlineInstagram size={42}></AiOutlineInstagram></a> 
-                <a><FaFacebook size={42}></FaFacebook></a> 
+                <a href='https://www.instagram.com/olhos.deagua/?hl=en'><AiOutlineInstagram size={42}></AiOutlineInstagram></a> 
+                <a href='https://www.facebook.com/groups/183225732558800/'><FaFacebook size={42}></FaFacebook></a> 
             </div>
         </div>
         <div class="footer-end">
@@ -22,10 +23,7 @@ function Footer() {
             <label class="label">
                 <span class="label-text">Enter your email address</span>
             </label> 
-            <div class="relative">
-                <input type="text" placeholder="username@site.com" class="input input-bordered w-full pr-16" /> 
-                <button class="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
-            </div>
+            <SubscriptionInput/>
             </div>
         </div>
     </footer>

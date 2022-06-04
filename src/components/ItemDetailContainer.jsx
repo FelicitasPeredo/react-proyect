@@ -14,7 +14,7 @@ function ItemDetailContainer() {
         getData(2000, products.find(item => item.id === id))
           .then(result => setitemDetail(result))
           .catch(error => console.log(error))
-      },[]);
+      },[id]);
 
   return (
     <div class=" flex justify-center">
