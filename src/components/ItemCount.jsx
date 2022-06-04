@@ -1,8 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function ItemCount({ stock, initial, onAdd }) {
     const [cantidad, setCantidad] = useState(initial)
+
+    // useEffect(() => {
+    //   setCantidad(initial)
+
+    // }, [])
+    
+    
     const sumaCtdad = () => {
         if (cantidad < stock) setCantidad(cantidad+1); 
     }
