@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { CartContext } from './CartContext'
 
 function CartWidget() {
+    // para poder utilizar el estado global que creo en el cartcontext, lo almanceno en test
+    const global = useContext(CartContext)
+
+    console.log(global)
+    
   return (
     <div class="dropdown dropdown-end p-1">
         <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -14,7 +21,7 @@ function CartWidget() {
                 <span class="font-bold text-lg">8 Items</span>
                 <span class="text-info">Subtotal: $999</span>
                 <div class="card-actions">
-                    <button class="btn btn-primary btn-block">View cart</button>
+                    <button class="btn btn-secondary btn-block"><Link to='/cart'>View cart</Link></button>
                 </div>
             </div>
         </div>

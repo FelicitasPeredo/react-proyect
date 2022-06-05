@@ -5,12 +5,12 @@ import Navbar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Cart from '../components/Cart'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { CartContext } from '../components/CartContext'
+import CartContextProvider from '../components/CartContext'
 
 const Home = () => {
   return (
-    // Envuelvo toda la app con el cartcontext
-    <CartContext.Provider value={"Coder"}>
+    // Envuelvo toda la app con el cartcontext provider
+    <CartContextProvider>
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -22,7 +22,7 @@ const Home = () => {
         </Routes>
         <Footer/>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartContextProvider>
   )
 }
 

@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from './ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from './CartContext'
 
 
 function ItemDetail({ item }) {
   const [itemCount, setitemCount] = useState(0)
+  const global = useContext(CartContext)
 
   const onAdd = (qty) => {
     alert("You have selected " + qty + " items.")
     setitemCount(qty)
+    // agregar el producto al carrito, llamo a la funcion global para poder pasar el item a el cart
+    global.AddToCart(item, qty)
   }
 
   return (
