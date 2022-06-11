@@ -3,6 +3,7 @@ import ItemCount from './ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from './CartContext'
+import Spinner from './Spinner'
 
 
 function ItemDetail({ item }) {
@@ -10,7 +11,6 @@ function ItemDetail({ item }) {
   const global = useContext(CartContext)
 
   const onAdd = (qty) => {
-    alert("You have selected " + qty + " items.")
     setitemCount(qty)
     // agregar el producto al carrito, llamo a la funcion global para poder pasar el item a el cart
     global.AddToCart(item, qty)
@@ -30,11 +30,15 @@ function ItemDetail({ item }) {
           {
             itemCount === 0
             ? <ItemCount stock={item.stock} initial={0} onAdd={onAdd}></ItemCount>
-            : <Link to='/cart'><div class='btn-group justify-center'><button class="btn btn-accent btn-lg">Checkout</button></div></Link>
+            : 
+            <>
+              <Link to='/cart'><div class='btn-group justify-center'><button class="btn btn-accent">Checkout</button></div></Link>
+              <Link to='/'><div class='btn-group justify-center'><button class="btn btn-secondary">Continue Shopping</button></div></Link>
+            </>
           }
         </div>
       </div>
-      : <p>Cargando...</p>
+      : <Spinner/>
     }
     </>
   )
