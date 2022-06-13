@@ -1,25 +1,42 @@
 import { CartContext } from './CartContext'
 import React, { useContext } from 'react'
 
-function CartShow({ id, picture, title, price, qty }) {
+function CartShow({ id, picture, title, price, qty, description }) {
     const global = useContext(CartContext)
 
     const removeCard = () => {
         global.removeItem(id)
     }
-  
-    return (
-    <div class="card w-96 h-96 bg-base-100 shadow-xl m-5">
-        <div class="card-body px-7 pb-7 pt-5">
-            <button class="btn btn-circle btn-outline place-self-end" onClick={removeCard}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-            <h2 class="card-title">{title}</h2>
-            <p>{qty} unidades</p>
-            <p>${price}</p>
+
+  return (
+  <>
+    <tr>
+        <td>
+        <div class="flex items-center space-x-3">
+            <div class="avatar">
+            <div class="mask mask-squircle w-12 h-12">
+                <img src={picture} alt="Producto" />
+            </div>
+            </div>
+            <div>
+            <div class="font-bold">{title}</div>
+            <div class="text-sm opacity-50">{description}</div>
+            </div>
         </div>
-        <figure><img src={picture} alt="Producto" class="object-center"/></figure>
-    </div>
+        </td>
+        {
+            qty === 1
+            ? <td>{qty} unidad</td>
+            : <td>{qty} unidades</td>
+        }
+        <td>${global.calcTotalPerItem(id)}</td>
+        <td>
+            <button class="btn btn-circle btn-outline" onClick={removeCard}>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </td>
+    </tr>
+  </>
   )
 }
 

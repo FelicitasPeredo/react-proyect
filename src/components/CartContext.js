@@ -19,6 +19,7 @@ const CartContextProvider = ({ children }) => {
                 imgCartItem: item.image,
                 nameCartItem: item.name,
                 costCartItem: item.cost,
+                descriptionCartItem: item.description,
                 qtyCartItem: qty,
             }
         ])
@@ -38,10 +39,10 @@ const CartContextProvider = ({ children }) => {
     }
 
     // calculo el total de cada producto
-    const calcTotalPerItem = (idItem) => {
+    const calcTotalPerItem = (id) => {
         // Uso la misma funcion para cada item entonces tengo que identificar el item x su id, 
         // ver donde esta posicionado dentro del array de listCart y multiplicar su costo x su cantidad 
-        let index = cartList.map(item => item.idItem).indexOf(idItem)
+        let index = cartList.map(item => item.idCartItem).indexOf(id)
         // (cant * precio)
         return cartList[index].costCartItem * cartList[index].qtyCartItem
     }
@@ -49,9 +50,13 @@ const CartContextProvider = ({ children }) => {
     // calculo el subtotal
     const calcSubTotal = () => {
         // Creo un array con todos los totales por producto (cant * precio)
-        let totalPerItem = cartList.map(item => calcTotalPerItem(item.idItem));
+        let totalPerItem = cartList.map(item => calcTotalPerItem(item.idCartItem));
         // sumo todos los valores del array con un metodo reduce
-        return totalPerItem.reduce((previousValue, currentValue) => previousValue + currentValue);
+        return totalPerItem.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
+    }
+
+    const calcTaxes = () => {
+        return calcSubTotal() * 0.18;
     }
 
     // calculo el total
@@ -62,14 +67,14 @@ const CartContextProvider = ({ children }) => {
     // calculo el total de las cantidades seleccionadas de productos
     const calcItemsQty = () => {
         // Creo un array con todos las cantidades por producto
-        let qtys = cartList.map(item => item.qtyItem);
+        let qtys = cartList.map(item => item.qtyCartItem);
         // sumo todos los valores del array con un metodo reduce
         return qtys.reduce(((previousValue, currentValue) => previousValue + currentValue), 0);
     }
 
     return(
         // A value le paso un objeto con una variable y las funciones que quiera exportar a otros componentes
-        <CartContext.Provider value={{cartList, AddToCart, removeItem, deleteCartList, calcTotalPerItem, calcSubTotal, calcTotal, calcItemsQty}}>
+        <CartContext.Provider value={{cartList, AddToCart, removeItem, deleteCartList, calcTotalPerItem, calcSubTotal, calcTotal, calcTaxes, calcItemsQty}}>
             {children}
         </CartContext.Provider>
     )
