@@ -13,7 +13,12 @@ const CartContextProvider = ({ children }) => {
 
         // si ya existe en el carrito ese item sumo esa cantidad a la ya existente, 
         // sino suma el item al carrito
-        if (found) { found.qtyCartItem += qty} else setCartList([...cartList, 
+        if (found) {
+            found.qtyCartItem += qty
+            setCartList([...cartList])
+        }     
+        else {
+            setCartList([...cartList, 
             {
                 idCartItem: item.id,
                 imgCartItem: item.image,
@@ -22,7 +27,8 @@ const CartContextProvider = ({ children }) => {
                 descriptionCartItem: item.description,
                 qtyCartItem: qty,
             }
-        ])
+            ])
+        }
     }
 
     // quitar el producto con id = id con un filter
