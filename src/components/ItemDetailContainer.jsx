@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import getData from '../utils/promise';
 import ItemDetail from './ItemDetail';
-const { products } = require('../utils/products');
+const { firestoreFetchOne } = require('../utils/firestoreFetch');
 
 function ItemDetailContainer() {
     const [itemDetail, setitemDetail] = useState([]);
@@ -11,9 +10,12 @@ function ItemDetailContainer() {
 
     useEffect(() => {
         // Podria hacer directamente products[id] si el id fuera alfanumerico
-        getData(2000, products.find(item => item.id === id))
+        // getData(2000, products.find(item => item.id === id))
+        //   .then(result => setitemDetail(result))
+        //   .catch(error => console.log(error))
+        firestoreFetchOne(id)
           .then(result => setitemDetail(result))
-          .catch(error => console.log(error))
+          .catch(err => console.log(err))
       },[id]);
 
   return (
