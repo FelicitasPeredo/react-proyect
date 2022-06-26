@@ -1,7 +1,9 @@
+import { serverTimestamp, setDoc, collection, doc, updateDoc, increment } from 'firebase/firestore';
 import React, { useContext } from 'react'
 import { CartContext } from './CartContext'
 import CartListContainer from './CartListContainer';
 import EmptyCart from './EmptyCart';
+import db from '../utils/firebaseConfig';
 // import CartShow from './CartShow';
 
 function Cart() {
@@ -9,6 +11,52 @@ function Cart() {
 
     const deleteList = () => {
         global.deleteCartList()
+    }
+
+    const createOrder = () => {
+        // creo un nuevo array de items para incluir en las ordenes
+        const itemsForDB = global.cartList.map(item => ({
+            id: item.idCartItem,
+            price: item.costCartItem,
+            title: item.nameCartItem,
+            qty: item.qtyCartItem
+        }))
+
+        // creo las ordenes que voy a settear en la base de datos
+        let order = {
+            buyer: {
+                email: "leomessi@gmail.com",
+                name: "Leo Messi",
+                phone: "1144001711"
+            },
+            date: serverTimestamp(),
+            total: global.calcTotal(),
+            items: itemsForDB
+        }
+        console.log(order)
+
+        // seteo la orden en firestore
+        const createOrderInFirestore = async () => {
+            const newOrderRef = doc(collection(db, "orders"))
+            await setDoc(newOrderRef, order)
+            return newOrderRef
+        }
+
+        // si logra setearla ok salta el alert
+        createOrderInFirestore()
+            .then(result => alert('Your ID Order is ' + result.id))
+            .catch(err => console.log(err))
+
+        // actualizo el stock de el producto en la base de datos
+        global.cartList.forEach(async (item) => {
+            const itemRef = doc(db, "products", item.idCartItem)
+            await updateDoc(itemRef, {
+                stock: increment(-item.qtyCartItem)
+            })
+        })
+        
+        // limpio el carrito
+        deleteList()
     }
 
   return (
@@ -22,7 +70,7 @@ function Cart() {
             </div>
             <div class="navbar-end">
                 {
-                global.cartList.length > 0 && <button class="btn btn-primary m-5">Checkout</button>
+                global.cartList.length > 0 && <button class="btn btn-secondary m-5" onClick={createOrder}>Checkout Now</button>
                 }
             </div>
         </div>
