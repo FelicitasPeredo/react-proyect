@@ -1,14 +1,14 @@
 import { serverTimestamp, setDoc, collection, doc, updateDoc, increment } from 'firebase/firestore';
 import React, { useContext } from 'react'
-import { CartContext } from './CartContext'
+import { CartContext } from '../context/CartContext'
 import CartListContainer from './CartListContainer';
 import EmptyCart from './EmptyCart';
 import db from '../utils/firebaseConfig';
-// import CartShow from './CartShow';
 
 function Cart() {
     const global = useContext(CartContext);
 
+    // limpio el carrito
     const deleteList = () => {
         global.deleteCartList()
     }
@@ -33,7 +33,6 @@ function Cart() {
             total: global.calcTotal(),
             items: itemsForDB
         }
-        console.log(order)
 
         // seteo la orden en firestore
         const createOrderInFirestore = async () => {
@@ -54,7 +53,7 @@ function Cart() {
                 stock: increment(-item.qtyCartItem)
             })
         })
-        
+
         // limpio el carrito
         deleteList()
     }
@@ -70,7 +69,7 @@ function Cart() {
             </div>
             <div class="navbar-end">
                 {
-                global.cartList.length > 0 && <button class="btn btn-secondary m-5" onClick={createOrder}>Checkout Now</button>
+                    global.cartList.length > 0 && <button class="btn btn-secondary m-5" onClick={createOrder}>Checkout Now</button>
                 }
             </div>
         </div>
@@ -79,7 +78,6 @@ function Cart() {
             global.cartList.length === 0 
             ? <EmptyCart></EmptyCart> 
            : <CartListContainer></CartListContainer>
-        //    global.cartList.map(item => <CartShow key={item.idCartItem} id={item.idCartItem} title={item.nameCartItem} price={item.costCartItem} picture={item.imgCartItem} qty={item.qtyCartItem} description={item.descriptionCartItem}/>)
         }
     </div>
   )

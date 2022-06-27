@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Item({id, picture, title, price, stock}) {
+function Item({id, picture, title, price}) {
   return (
         <div class="card w-96 bg-base-100 shadow-xl m-3">
             <figure class="px-10 pt-10">

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import ItemCount from './ItemCount'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from './CartContext'
+import { CartContext } from '../context/CartContext'
 import Spinner from './Spinner'
 
 

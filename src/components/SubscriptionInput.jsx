@@ -14,7 +14,6 @@ function subscriptionInput() {
     const handleKeyDown = (event) => {
         if (event.keyCode === 32) {
             event.preventDefault();
-            console.log('No se permiten espacios.')
         }
     }  
 

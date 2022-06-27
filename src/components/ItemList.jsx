@@ -9,7 +9,7 @@ function ItemList({ items }) {
           // Chequeo que la lista de productos no este vacia
           items.length > 0
           // Por cada producto de la lista de productos devuelvo un componente Item con sus correspondientes props
-          ? items.map(item => <Item key={item.id} id={item.id} title={item.name} price={item.cost} picture={item.image} stock={item.stock}/>)
+          ? items.map(item => <Item key={item.id} id={item.id} title={item.name} price={item.cost} picture={item.image}/>)
           //Mientras espero a que la promise se cumpla se renderiza el spinner
           : <Spinner/>
         }

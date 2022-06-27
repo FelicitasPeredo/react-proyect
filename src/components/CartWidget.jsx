@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { CartContext } from './CartContext'
+import { CartContext } from '../context/CartContext'
 
 function CartWidget() {
     // para poder utilizar el estado global que creo en el cartcontext, lo almanceno en test
