@@ -13,6 +13,7 @@ Si lo que deseas es tener una copia en tu computador local, debes bajarte el arc
 * DaisyUI
 * Tailwind
 * Firebase
+* Sweet Alert
 
 ## Autor
 
