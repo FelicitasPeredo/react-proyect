@@ -5,7 +5,7 @@ import Navbar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Cart from '../components/Cart'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import CartContextProvider from '../components/CartContext'
+import CartContextProvider from '../context/CartContext'
 
 const Home = () => {
   return (

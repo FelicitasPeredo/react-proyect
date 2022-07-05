@@ -4,6 +4,7 @@ import { CartContext } from '../context/CartContext'
 import CartListContainer from './CartListContainer';
 import EmptyCart from './EmptyCart';
 import db from '../utils/firebaseConfig';
+import swal from 'sweetalert';
 
 function Cart() {
     const global = useContext(CartContext);
@@ -43,7 +44,7 @@ function Cart() {
 
         // si logra setearla ok salta el alert
         createOrderInFirestore()
-            .then(result => alert('Your ID Order is ' + result.id))
+            .then(result => swal("Thank you!", "Order received. Your ID Order is " + result.id, "success"))
             .catch(err => console.log(err))
 
         // actualizo el stock de el producto en la base de datos

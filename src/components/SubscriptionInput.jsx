@@ -1,14 +1,18 @@
 import React from 'react'
+import swal from 'sweetalert';
 
 function subscriptionInput() {
 
     const verifyEmail = () => {
         let inputValue = document.getElementById("userNameForSuscription").value;
-        if ((inputValue.includes('@')) & (inputValue.includes('.com'))) {
-            alert('You have suscribed sucessfully. Thank you!')
+        if ((inputValue === '@.com') || (inputValue.startsWith('@'))) {
+            swal("Oops..", "Incorrect e-mail, try again.", "error");
+        }
+        else if ((inputValue.includes('@')) & (inputValue.includes('.com'))){
+            swal("Thank you!", "You have subscribed sucessfully.", "success");
         }
         else {
-            alert("Incorrect e-mail, try again.")
+            swal("Oops..", "Incorrect e-mail, try again.", "error");
         }
     }
     const handleKeyDown = (event) => {
@@ -20,7 +24,7 @@ function subscriptionInput() {
   return (
     <div class="relative">
         <input type="text" id='userNameForSuscription'placeholder="username@site.com" class="input input-bordered w-full pr-16" onKeyDown={handleKeyDown}/> 
-        <button class="btn btn-primary absolute top-0 right-0 rounded-l-none" onClick={verifyEmail}>Subscribe</button>
+        <button for="my-modal" class="btn btn modal-button btn-primary absolute top-0 right-0 rounded-l-none" onClick={verifyEmail}>Subscribe</button>
     </div>
   )
 }
